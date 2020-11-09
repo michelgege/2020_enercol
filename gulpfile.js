@@ -23,6 +23,7 @@ function sass() {
 			.pipe(sourcemaps.init())
 			.pipe(gulpSass({ outputStyle: 'expanded' }))
 			.on('error', err => notify().write(err))
+			// .on('error', err => notify().write(err))
 			.pipe(postcss([autoprefixer()])) // autoprefixer
 			//		.pipe(postcss([autoprefixer(), cssnano()])) // autoprefixer  +  minifier
 			//		.pipe(postcss([unuse(options_unuse), autoprefixer()])) // css unuse + autoprefixer
