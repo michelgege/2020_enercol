@@ -1,0 +1,19 @@
+//font-family: 'Lato', sans-serif; black 900
+//font-family: 'Lato', sans-serif;  regular 400
+//font-family: 'Anton', sans-serif; 400
+
+
+@font-face {
+    font-family: "anton";
+    src: url("/src/fonts/Anton-Regular.ttf") format("ttf")
+}
+
+@font-face {
+    font-family: "lato_black";
+    src: url("/src/fonts/Lato-Black.ttf") format("ttf")
+}
+
+@font-face {
+    font-family: "lato";
+    src: url("/src/fonts/Lato-Regular.ttf") format("ttf")
+}

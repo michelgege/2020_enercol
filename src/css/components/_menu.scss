@@ -1,0 +1,134 @@
+// CONFIG
+$bar_height : 5px;
+$bar_width : 40px;
+$bar_color : #000000;
+$bar_translate : 10px;
+$transition_time: .25s;
+$menu_bg_color : #FFFFFF;
+$mobile_font_size : 2.5rem;
+$desktop_font_size : 1.15rem;
+$breakpoint_desktop : 1024px;
+$desktop_menu_padding : 20px 30px;
+
+body {
+    overflow-x: hidden;
+}
+
+@mixin menu_bar {
+    transition: $transition_time;
+    content: '';
+    display: block;
+    width: $bar_width;
+    background-color: $bar_color;
+    height: $bar_height;
+}
+
+.menu_button {
+    cursor: pointer;
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    padding: 20px 10px;
+    z-index: 2;
+}
+
+span.menu_button_part {
+    @include menu_bar();
+    &::before {
+        @include menu_bar();
+        transform: translateY(-$bar_translate);
+    }
+    &::after {
+        @include menu_bar;
+        transform: translateY(calc(#{$bar_translate} - #{$bar_height}));
+    }
+}
+
+nav.menu.open {
+    .menu_container {
+        transform: translateX(0);
+    }
+    span.menu_button_part {
+        transition: $transition_time;
+        transform: rotate(45deg);
+        &::before {
+            transition: $transition_time;
+            transform: translateY(0) rotate(90deg);
+        }
+        &::after {
+            transition: $transition_time;
+            transform: translateY(-#{$bar_height}) rotate(90deg);
+        }
+    }
+}
+
+.menu_container {
+    width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: $menu_bg_color;
+    transform: translateX(100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        font-size: $mobile_font_size;
+        list-style: none;
+    }
+}
+
+
+@media all and (min-width : $breakpoint_desktop) {
+    .menu_container {
+        transform: translateX(0);;
+        min-height: inherit;
+        justify-content: flex-end;
+        padding: $desktop_menu_padding;
+        ul {
+            flex-direction: row;
+            font-size: $desktop_font_size;
+            margin-bottom: 0;
+        }
+        li {
+            margin: 0 20px;
+        }
+    }
+    .menu_button {
+        display: none;
+    }
+}
+
+
+
+/* JS
+
+let button_part = document.querySelector('.menu_button_part')
+let menu = document.querySelector('.menu')
+
+document.querySelector('.menu_button').addEventListener('click', () => {
+    menu.classList.toggle('open')
+})
+
+*/
+
+
+/*HTML 
+
+<nav class="menu">
+    <div class="menu_button">
+        <span class="menu_button_part"></span>
+    </div>
+    <div class="menu_container">
+        <ul>
+            <li><a class="menu_item" href="index.html">accueil</a></li>
+            .......
+        </ul>	
+    </div>
+</nav>
+
+*/
