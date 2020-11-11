@@ -15,18 +15,30 @@ div.stat {
 }
 
 div.articles_container {
-    &.brown {
-        background-color: $brown;
-    }
     &.green {
         background-color: $light_green;
     }
     &.yellow {
         background-color: $yellow;
     }
-    &.blue {
-        background-color: $blue;
+    &.grey {
+        background-color: $light_grey;
     } 
+}
+
+.dotted {
+    position: relative;
+    &::after {
+        content: "";
+        background: url('/src/img/svg/points.svg');
+        opacity: 0.4;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
 }
 
 
@@ -100,17 +112,6 @@ div.paragraph_container {
     text-align: center;
     color: $grey;
     position: relative;
-    // background-image: url('/src/img/svg/points.svg');
-    &::after {
-        content: "";
-        background: url('/src/img/svg/points.svg');
-        opacity: 0.5;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        position: absolute;
-    }
     div.img_container {
         width: 1rem;
         margin-left: auto;
@@ -127,7 +128,7 @@ a.btn {
     align-items: center;
     background-color: $grey;
     padding: 0.5rem 1rem;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-top: 2rem;
     margin-bottom: 2rem;
     margin-left: 50%;
@@ -155,6 +156,9 @@ a.btn {
 div.articles_container {
     color: $light_grey;
     padding: .5rem;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    color: $grey;
     &.yellow {
         color: white;
     }
@@ -177,6 +181,9 @@ div.controls {
         margin: 0 0.2rem;
     }
 }
+.plus_button {
+    width: 1.5rem;
+}
 
 article {
     div.img_container {
@@ -184,5 +191,8 @@ article {
     }
     div.text_container {
         margin-left: 1rem;
+    }
+    a.btn {
+        width: 100%;
     }
 }
