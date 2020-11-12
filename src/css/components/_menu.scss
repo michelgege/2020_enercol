@@ -1,7 +1,7 @@
 // CONFIG
 $bar_height : 5px;
-$bar_width : 40px;
-$bar_color : #000000;
+$bar_width : 30px;
+$bar_color : #fff;
 $bar_translate : 10px;
 $transition_time: .25s;
 $menu_bg_color : $light_green;
@@ -10,7 +10,8 @@ $desktop_font_size : 1.15rem;
 $breakpoint_desktop : 1201px;
 $desktop_menu_padding : 0 30px;
 
-@mixin contrast_text($bg_color) {
+
+@mixin contrast_color($bg_color) {
     @if (lightness($bg_color) > 50) {
         color: $grey;
     } @else {
@@ -32,7 +33,7 @@ body, html{
 }
 li a {
     font-family: anton;
-    @include contrast_text($menu_bg_color)
+    @include contrast_color($menu_bg_color)
 }
 
 
@@ -40,6 +41,7 @@ li a {
     cursor: pointer;
     padding: 20px 10px;
     z-index: 2;
+    background-color: $light_green;
 }
 
 span.menu_button_part {
@@ -58,7 +60,8 @@ nav.menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $light_green;
+    background-color: #fff;
+    padding: 1rem
 }
 
 nav.menu.open {
@@ -141,16 +144,23 @@ nav.menu.open {
     nav.menu {
         background-color: transparent;
         align-items: flex-start;
+        padding: 0;
     }
     div.wrap-menu{
         position: absolute;
-        width: calc(#{$breakpoint_desktop} - 100px);
+        width: calc(#{$breakpoint_desktop} - 300px);
         margin: 0 auto;
         left: 0;
         right: 0;
     }
 }
 
+
+@media all and (min-width : 1440px) {
+    div.wrap-menu {
+        width: 1200px;
+    }
+}
 
 
 /* JS
