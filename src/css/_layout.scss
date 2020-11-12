@@ -196,3 +196,37 @@ article {
         width: 100%;
     }
 }
+
+@media all and (min-width : 425px) {
+    div.wrap {
+        width: 425px;
+    }
+}
+
+@media all and (min-width : 768px) {
+
+    div.wrap {
+        width: 768px;
+    }
+    div.stats_container {
+        flex-wrap: nowrap;
+    }
+
+    div.paragraph_container {
+        display: flex;
+        align-items: center;
+        h3, div{
+            flex-basis: 50%;
+        }
+        h3 {
+            text-align: right;
+            margin-right: 3rem;
+        }
+    }
+    .dotted::after {
+        width : 50vw;
+        right : 50%;
+        left: inherit;
+    }
+    
+}

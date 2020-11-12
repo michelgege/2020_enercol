@@ -7,11 +7,15 @@ $transition_time: .25s;
 $menu_bg_color : #fff;
 $mobile_font_size : 2.5rem;
 $desktop_font_size : 1.15rem;
-$breakpoint_desktop : 1024px;
+$breakpoint_desktop : 1201px;
 $desktop_menu_padding : 0 30px;
 
-body {
-    overflow-x: hidden;
+@mixin contrast_text($bg_color) {
+    @if (lightness($bg_color) > 50) {
+        color: #000;
+    } @else {
+        color: #fff;
+    }
 }
 
 @mixin menu_bar {
@@ -22,6 +26,14 @@ body {
     background-color: $bar_color;
     height: $bar_height;
 }
+
+body, html{
+    overflow-x: hidden;
+}
+li a {
+    @include contrast_text($menu_bg_color)
+}
+
 
 .menu_button {
     cursor: pointer;
@@ -49,7 +61,7 @@ nav.menu {
 
 nav.menu.open {
     .menu_container {
-        transform: translateX(0);
+        display: flex;
     }
     span.menu_button_part {
         transition: $transition_time;
@@ -66,13 +78,12 @@ nav.menu.open {
 }
 
 .menu_container {
-    width: 100vw;
-    display: flex;
+    width: 100%;
     min-height: 100vh;
     align-items: center;
     justify-content: center;
     background-color: $menu_bg_color;
-    transform: translateX(100%);
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -89,10 +100,11 @@ nav.menu.open {
 @media all and (min-width : $breakpoint_desktop) {
     .menu_container {
         width: 100%;
-        transform: translateX(0);
+        display: flex;
         min-height: inherit;
-        justify-content: space-between;
+        justify-content: flex-end;
         padding: $desktop_menu_padding;
+        position: inherit;
         ul {
             flex-direction: row;
             font-size: $desktop_font_size;
