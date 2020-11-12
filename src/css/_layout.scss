@@ -229,11 +229,11 @@ article {
             text-align: right;
             margin-right: 3rem;
         }
-    }
-    .dotted::after {
-        width : 50vw;
-        right : 50%;
-        left: inherit;
+        &.dotted::after {
+            width : 50vw;
+            right : 50%;
+            left: inherit;
+        }
     }
     
 }

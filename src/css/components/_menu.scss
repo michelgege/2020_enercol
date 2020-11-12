@@ -148,7 +148,7 @@ nav.menu.open {
     }
     div.wrap-menu{
         position: absolute;
-        width: calc(#{$breakpoint_desktop} - 300px);
+        width: calc(#{$breakpoint_desktop} - 150px);
         margin: 0 auto;
         left: 0;
         right: 0;
