@@ -4,7 +4,7 @@ $bar_width : 40px;
 $bar_color : #000000;
 $bar_translate : 10px;
 $transition_time: .25s;
-$menu_bg_color : #fff;
+$menu_bg_color : $light_green;
 $mobile_font_size : 2.5rem;
 $desktop_font_size : 1.15rem;
 $breakpoint_desktop : 1201px;
@@ -12,7 +12,7 @@ $desktop_menu_padding : 0 30px;
 
 @mixin contrast_text($bg_color) {
     @if (lightness($bg_color) > 50) {
-        color: #000;
+        color: $grey;
     } @else {
         color: #fff;
     }
@@ -31,6 +31,7 @@ body, html{
     overflow-x: hidden;
 }
 li a {
+    font-family: anton;
     @include contrast_text($menu_bg_color)
 }
 
@@ -57,6 +58,7 @@ nav.menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: $light_green;
 }
 
 nav.menu.open {

@@ -181,7 +181,7 @@ div.controls {
         margin: 0 0.2rem;
     }
 }
-.plus_button {
+div.plus_button {
     width: 1.5rem;
 }
 
@@ -229,4 +229,24 @@ article {
         left: inherit;
     }
     
+}
+
+
+@media all and (min-width : 1024px) {
+    article {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        div.img_container {
+            width: 100%;
+            flex-basis: 40%;
+        }
+        div.text_container {
+            flex-basis: 50%;
+        }
+    }
+    div.plus_button {
+        display: flex;
+        align-items: flex-end;
+    }
 }
