@@ -8,7 +8,7 @@ $menu_bg_color : $light_green;
 $mobile_font_size : 2.5rem;
 $desktop_font_size : 1.15rem;
 $breakpoint_desktop : 1201px;
-$desktop_menu_padding : 0 30px;
+$desktop_menu_padding : 0 1rem;
 
 
 @mixin contrast_color($bg_color) {
@@ -107,7 +107,7 @@ nav.menu.open {
         width: 100%;
         display: flex;
         min-height: inherit;
-        justify-content: flex-end;
+        justify-content: flex-start;
         padding: $desktop_menu_padding;
         position: inherit;
         background-color: transparent;
@@ -126,8 +126,6 @@ nav.menu.open {
             &:last-of-type {
                 background-color: $yellow;
                 margin-left: 1rem;
-            }
-            a {
             }
         }
     }
