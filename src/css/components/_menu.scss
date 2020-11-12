@@ -107,17 +107,47 @@ nav.menu.open {
         justify-content: flex-end;
         padding: $desktop_menu_padding;
         position: inherit;
+        background-color: transparent;
         ul {
             flex-direction: row;
             font-size: $desktop_font_size;
             margin-bottom: 0;
+
         }
         li {
-            margin: 0 20px;
+            padding: 20px;
+            background-color: $menu_bg_color;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            &:last-of-type {
+                background-color: $yellow;
+                margin-left: 1rem;
+            }
+            a {
+            }
         }
     }
+
+    div.logo {
+        background-color: #fff;
+        padding:2rem;
+    }
+
     .menu_button {
         display: none;
+    }
+
+    nav.menu {
+        background-color: transparent;
+        align-items: flex-start;
+    }
+    div.wrap-menu{
+        position: absolute;
+        width: calc(#{$breakpoint_desktop} - 100px);
+        margin: 0 auto;
+        left: 0;
+        right: 0;
     }
 }
 
